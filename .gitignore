@@ -1,0 +1,5 @@
+*.suo
+*.user
+*.dll
+bin/*
+obj/*

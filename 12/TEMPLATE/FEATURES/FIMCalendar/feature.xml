@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature  Id="B080D94D-D4DB-4287-B374-C887A023F394"
+          Title="FIMCalendar"
+          Description="Adds FIMCalendar to FIM master pages."
+          Version="1.0.0.0"
+          ActivateOnDefault="TRUE"
+          Hidden="FALSE"
+          Scope="Web"
+          xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ElementManifests>
+    <ElementManifest Location="elements.xml"/>   
+  </ElementManifests>
+</Feature>
