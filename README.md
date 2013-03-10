@@ -3,7 +3,7 @@
 One of the most annoying "features" of MS FIM portal is that you can't just pick a date from calendar, but you need to type it into date field (according to regional settings). 
 This might be ok for nerds from IT department. But hey, you're going to make all other people use it, do you really think they want to type dates?
 
-So the project is to add familiar jQuery datepicker to the FIM portal. Do you like it?
+So the project goal is to add familiar jQuery datepicker to the FIM portal. Do you like it?
 
 ![demo](demo.png)
 
