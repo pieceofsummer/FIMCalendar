@@ -28,8 +28,8 @@ If you want, you may build it from sources. You'll need Microsoft.SharePoint.dll
 
 Build a solution in Visual Studio, after that launch WSPBuilder.exe in the solution directory. For example, if you forked a repositary to `C:\Projects\FIMCalendar`, you'll do the following:
 <pre>
-  c:\>cd C:\Projects\FIMCalendar
-  c:\Projects\FIMCalendar>"c:\Program Files (x86)\WSPTools\WSPBuilderExtensions\WSPBuilder.exe"
+c:\>cd C:\Projects\FIMCalendar
+c:\Projects\FIMCalendar>"c:\Program Files (x86)\WSPTools\WSPBuilderExtensions\WSPBuilder.exe"
 </pre>
 
 It will create or update a FIMCalendar.wsp in the solution folder. After that you're ready for installation
@@ -39,12 +39,18 @@ It will create or update a FIMCalendar.wsp in the solution folder. After that yo
 You'll need to use either old-school `stsadm`, or new PowerShell extensions. Let's assume you're running on WSS and have only `stsadm`.
 
 First, you need to add a solution:
-`stsadm -o addsolution -filename c:\Projects\FIMCalendar\FIMCalendar.wsp`
+<pre>
+stsadm -o addsolution -filename c:\Projects\FIMCalendar\FIMCalendar.wsp
+</pre>
 
 This will add solution named `FIMCalendar.wsp` to your SharePoint. After that you need to deploy it on IdentityManagement site (assuming `fim` is your server name):
-`stsadm -o deploysolution -name FIMCalendar.wsp -url http://fim/IdentityManangement/ -immediate -allowgacdeployment`
+<pre>
+stsadm -o deploysolution -name FIMCalendar.wsp -url http://fim/IdentityManangement/ -immediate -allowgacdeployment
+</pre>
 
 After that you go to FIM Portal, choose Site Settings and enable FIM Calendar in Site Features.
 
 To update already deployed solution, you may use the following:
-`stsadm -o upgradesolution -name FIMCalendar.wsp -filename c:\Projects\FIMCalendar\FIMCalendar.wsp -immediate -allowgacdeployment`
+<pre>
+stsadm -o upgradesolution -name FIMCalendar.wsp -filename c:\Projects\FIMCalendar\FIMCalendar.wsp -immediate -allowgacdeployment
+</pre>
