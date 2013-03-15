@@ -48,7 +48,11 @@ This will add solution named `FIMCalendar.wsp` to your SharePoint. After that yo
 stsadm -o deploysolution -name FIMCalendar.wsp -url http://fim/IdentityManangement/ -immediate -allowgacdeployment
 </pre>
 
-After that you go to FIM Portal, choose Site Settings and enable FIM Calendar in Site Features. 
+After that you need to activate feature FIMCalendar for FIM Portal:
+<pre>
+stsadm -o activatefeature -name FIMCalendar -url http://fim/IdentityManangement/
+</pre>
+
 The feature has a single site scope, so it won't affect any other sites running on your SharePoint.
 
 To update already deployed solution, you may use the following:
