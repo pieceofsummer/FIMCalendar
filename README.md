@@ -7,6 +7,10 @@ So the project goal is to add familiar jQuery datepicker to the FIM portal. Do y
 
 ![demo](demo.png)
 
+Added support for datetime as well. Thanks to the plugin at http://trentrichardson.com/examples/timepicker/
+
+![demo2](demo2.png)
+
 ## Requirements
 
 * WSS 3.0, SharePoint 2007, or SharePoint 2010
