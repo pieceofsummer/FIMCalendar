@@ -7,7 +7,7 @@ using Microsoft.SharePoint;
 
 namespace FIMCalendar
 {
-    public partial class FIMCalendar : System.Web.UI.UserControl
+    public partial class FIMCalendar : UserControl
     {
 
         protected void Page_Load(object sender, EventArgs e)
@@ -19,13 +19,15 @@ namespace FIMCalendar
                         string layoutRoot = "/_layouts/FIMCalendar";
 
                         string[] cssFiles = new string[] {
-                            layoutRoot + "/CSS/jquery-ui.css"
+                            layoutRoot + "/CSS/jquery-ui.css",
+									 layoutRoot + "/CSS/jquery-ui-timepicker-addon.css"
                         };
 
                         string[] jsFiles = new string[] {
                             layoutRoot + "/JS/jquery.js",
                             layoutRoot + "/JS/jquery-ui.js",
                             layoutRoot + "/JS/jquery-ui-i18n.js",
+									 layoutRoot + "/JS/jquery-ui-timepicker-addon.js",
                             layoutRoot + "/JS/fim-calendar.js"
                         };
 

@@ -730,7 +730,7 @@
                 case "m":
                 case "y":
                 case "@":
-                    n += "0123456789 :";
+                    n += "0123456789";
                     break;
                 case "D":
                 case "M":

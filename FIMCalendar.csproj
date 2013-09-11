@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -16,7 +17,7 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
+    <OldToolsVersion>4.0</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <PublishUrl>http://localhost/BandR.SharePoint.SPEasyBranding/</PublishUrl>
@@ -36,6 +37,10 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <UseIISExpress>false</UseIISExpress>
     <TargetFrameworkProfile />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -98,9 +103,11 @@
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\CSS\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\CSS\images\ui-icons_d8e7f3_256x240.png" />
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\CSS\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\CSS\jquery-ui-timepicker-addon.css" />
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\CSS\jquery-ui.css" />
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\JS\fim-calendar.js" />
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\JS\jquery-ui-i18n.js" />
+    <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\JS\jquery-ui-timepicker-addon.js" />
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\JS\jquery-ui.js" />
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\JS\jquery.js" />
     <Content Include="solutionid.txt" />
@@ -136,6 +143,10 @@
   <ItemGroup>
     <None Include="FIMCalendar.snk" />
   </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -163,5 +174,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
 </Project>
