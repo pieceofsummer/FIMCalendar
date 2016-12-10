@@ -41,6 +41,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,8 +64,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.SharePoint">
-      <HintPath>.\Microsoft.SharePoint.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>lib\Microsoft.SharePoint.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -104,11 +104,12 @@
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\CSS\images\ui-icons_d8e7f3_256x240.png" />
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\CSS\images\ui-icons_f9bd01_256x240.png" />
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\CSS\jquery-ui-timepicker-addon.css" />
-    <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\CSS\jquery-ui.css" />
+    <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\CSS\jquery-ui-datepicker.css" />
+    <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\JS\fim-calendar-loader.js" />
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\JS\fim-calendar.js" />
-    <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\JS\jquery-ui-i18n.js" />
+    <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\JS\jquery-ui-datepicker-localization.js" />
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\JS\jquery-ui-timepicker-addon.js" />
-    <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\JS\jquery-ui.js" />
+    <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\JS\jquery-ui-datepicker.js" />
     <Content Include="12\TEMPLATE\LAYOUTS\FIMCalendar\JS\jquery.js" />
     <Content Include="solutionid.txt" />
   </ItemGroup>
@@ -176,4 +177,8 @@
   </ProjectExtensions>
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(TargetDir)"
+"c:\Program Files (x86)\WSPTools\WSPBuilderExtensions\WSPBuilder.exe"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
