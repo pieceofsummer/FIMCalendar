@@ -14,11 +14,11 @@ Added support for datetime as well. Thanks to the plugin at http://trentrichards
 ## Requirements
 
 * WSS 3.0, SharePoint 2007, or SharePoint 2010
-* Forefront Identity Management 2010 (or 2010 R2) Portal
+* Forefront Identity Management 2010 (or 2010 R2) Portal or Microsoft Identity Manager 2016
 
 ## jQuery version
 
-The project is built with jQuery 1.9.1 and custom jQuery UI 1.10 (with core and datepicker modules only). Client-side code is located under `12/TEMPLATE/LAYOUT/FIMCalendar`.
+The project is built with jQuery 1.11.3 and custom jQuery UI 1.11.4 (with core and datepicker modules only). Client-side code is located under `12/TEMPLATE/LAYOUT/FIMCalendar`.
 
 ## Regional settings
 
