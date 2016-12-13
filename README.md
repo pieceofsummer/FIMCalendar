@@ -31,35 +31,46 @@ There's already a pre-built version as a [WSP file](FIMCalendar.wsp).
 If you want, you may build it from sources. You'll need Microsoft.SharePoint.dll (not included, you may copy it from your SP server), Visual Studio (2010 or later) and [WSPBuilder](http://wspbuilder.codeplex.com).
 
 Build a solution in Visual Studio, after that launch WSPBuilder.exe in the solution directory. For example, if you forked a repositary to `C:\Projects\FIMCalendar`, you'll do the following:
-<pre>
+```
 c:\>cd C:\Projects\FIMCalendar
 c:\Projects\FIMCalendar>"c:\Program Files (x86)\WSPTools\WSPBuilderExtensions\WSPBuilder.exe"
-</pre>
+```
 
 It will create or update a FIMCalendar.wsp in the solution folder. After that you're ready for installation
 
 ## Installation
-
-You'll need to use either old-school `stsadm`, or new PowerShell extensions. Let's assume you're running on WSS and have only `stsadm`.
-
+You can use either stsadm, or the new PowerShell module
+### stsadmin
 First, you need to add a solution:
-<pre>
+```
 stsadm -o addsolution -filename c:\Projects\FIMCalendar\FIMCalendar.wsp
-</pre>
+```
 
 This will add solution named `FIMCalendar.wsp` to your SharePoint. After that you need to deploy it on IdentityManagement site (assuming `fim` is your server name):
-<pre>
+```
 stsadm -o deploysolution -name FIMCalendar.wsp -url http://fim/IdentityManangement/ -immediate -allowgacdeployment
-</pre>
+```
 
 After that you need to activate feature `FIMCalendar` for FIM Portal:
-<pre>
+```
 stsadm -o activatefeature -name FIMCalendar -url http://fim/IdentityManangement/
-</pre>
+```
 
 The feature has a single site scope, so it won't affect any other sites running on your SharePoint.
 
 To update already deployed solution, you may use the following:
-<pre>
+```
 stsadm -o upgradesolution -name FIMCalendar.wsp -filename c:\Projects\FIMCalendar\FIMCalendar.wsp -immediate -allowgacdeployment
-</pre>
+```
+### Sharepoint Management PowerShell 
+To install using the SharePoint Management PowerShell modules
+```
+Add-SPSolution -LiteralPath "D:\Source\FIMCalendar\FIMCalendar.wsp"
+Install-SPSolution -Identity fimcalendar.wsp -WebApplication "http://mimportal.my.domain" -Force -GACDeployment -FullTrustBinDeployment
+Enable-SPFeature -Identity FIMCalendar -Url "http://mimportal.my.domain/IdentityManagement"
+iisreset
+```
+To update an existing installation
+```
+Update-SPSolution -Identity FIMCalendar -LiteralPath "D:\Source\FIMCalendar\FIMCalendar.wsp" -GACDeployment
+```
