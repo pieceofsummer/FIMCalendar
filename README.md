@@ -13,8 +13,9 @@ Added support for datetime as well. Thanks to the plugin at http://trentrichards
 
 ## Requirements
 
-* WSS 3.0, SharePoint 2007, or SharePoint 2010
+* WSS 3.0, SharePoint 2007, SharePoint 2010, or SharePoint 2013
 * Forefront Identity Management 2010 (or 2010 R2) Portal or Microsoft Identity Manager 2016
+* Works with existing RCDCs (no changes required)
 
 ## jQuery version
 
@@ -26,7 +27,7 @@ Calendar doesn't have any special settings. It takes locale information from FIM
 
 ## Build instructions
 
-There's already a pre-built version as a [WSP file](FIMCalendar.wsp).
+There's already a pre-built version as a [WSP file](FIMCalendar.wsp). You may need to 'unblock' the file after downloading it by right clicking on it, selecting Properties and clicking the unblock button if it is visible.
 
 If you want, you may build it from sources. You'll need Microsoft.SharePoint.dll (not included, you may copy it from your SP server), Visual Studio (2010 or later) and [WSPBuilder](http://wspbuilder.codeplex.com).
 
